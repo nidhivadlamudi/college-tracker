@@ -1,64 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import './CollegeCard.css'; // Ensure you have this CSS file for styling
+import './CollegeCard.css';
 
 const CollegeCard = ({ id, logo, name, progress, onDelete }) => {
-  const [showDelete, setShowDelete] = useState(false);  // State for toggling delete option
+  const [showDelete, setShowDelete] = useState(false);
   const [headerColor, setHeaderColor] = useState('');
 
   const colors = [
-    '#1D3557',  // Deep Blue
-    '#457B9D',  // Slate Blue
-    '#2A9D8F',  // Teal
-    '#E76F51',  // Coral
-    '#F4A261',  // Light Orange
-    '#2D6A4F',  // Forest Green
-    '#F1FAEE',  // Light Mint Green
-    '#F4D35E',  // Golden Yellow
-    '#FF6F61',  // Burnt Red
-    '#6A4C93',  // Purple with depth
-    '#FF914D',  // Soft Orange
-    '#303030',  // Charcoal Grey
-    '#BB3E03',  // Dark Red
-    '#9A031E',  // Crimson Red
-    '#8D3F33',  // Deep Brown
-    '#034F84',  // Deep Navy Blue
-    '#FFB703',  // Vivid Yellow-Orange
-    '#D4E157',  // Lime Green
-    '#9C27B0',  // Fuchsia
-    '#00BFAE',  // Turquoise
-    '#D32F2F',  // Scarlet Red
-    '#8E44AD',  // Purple
-    '#FF4081',  // Hot Pink
-    '#FFEB3B',  // Bright Yellow
-    '#00C853',  // Green
-    '#9E9E9E',  // Medium Gray
-    '#43A047',  // Green
-    '#C2185B',  // Deep Pink
-    '#0288D1',  // Bright Blue
+    '#1D3557', '#457B9D', '#2A9D8F', '#E76F51', '#F4A261',
+    '#2D6A4F', '#F1FAEE', '#F4D35E', '#FF6F61', '#6A4C93',
+    '#FF914D', '#303030', '#BB3E03', '#9A031E', '#8D3F33',
+    '#034F84', '#FFB703', '#D4E157', '#9C27B0', '#00BFAE',
+    '#D32F2F', '#8E44AD', '#FF4081', '#FFEB3B', '#00C853',
+    '#9E9E9E', '#43A047', '#C2185B', '#0288D1',
   ];
 
-  const [usedColors, setUsedColors] = useState([]);
-
-  const getRandomColor = () => {
-    const randomIndex = Math.floor(Math.random() * colors.length);
-    if (usedColors.includes(colors[randomIndex])) {
-      return getRandomColor(); // Recursively call until a unique color is found
-    }
-    setUsedColors([...usedColors, colors[randomIndex]]);
-    return colors[randomIndex];
-  };
-
-  // Set the initial color when the component mounts
   useEffect(() => {
-    setHeaderColor(getRandomColor());
-  }, []); // Empty dependency array means it runs only on mount
+    setHeaderColor(colors[Math.floor(Math.random() * colors.length)]);
+  }, []);
 
   const handleDeleteClick = () => {
-    onDelete(id); // Call the delete handler passed from the parent component
+    onDelete(id);
   };
 
   const handleHamburgerClick = () => {
-    setShowDelete((prev) => !prev); // Toggle delete button visibility
+    setShowDelete((prev) => !prev);
   };
 
   return (
@@ -80,6 +45,7 @@ const CollegeCard = ({ id, logo, name, progress, onDelete }) => {
       <div className="progress-bar">
         <div className="progress" style={{ width: `${progress}%` }}></div>
       </div>
+      <div className="progress-percentage">{progress}% Done!</div>
     </div>
   );
 };

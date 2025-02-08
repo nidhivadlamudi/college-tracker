@@ -1,34 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header'
 import './global.css';
-import CollegeCardList from './CollegeCardList';
-import './CollegeCard.css'
-import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale } from 'chart.js';
+import CollegeCardContainer from './CollegeCardContainer';
 
 
 const App = () => {
+
+  const [colleges, setColleges] = useState([
+    { id: 1, logo: 'logo1.png', name: 'College A', progress: 70 },
+    { id: 2, logo: 'logo2.png', name: 'College B', progress: 85 },
+    { id: 3, logo: 'logo3.png', name: 'College C', progress: 40 },
+  ]);
+
   const [data, setData] = useState([
-    {
-      id: 1,
-      name: "Carnegie Mellon University",
-      logo: "/img/carnegie-mellon.jpg",
-      progress: 70,
-    },
-    {
-      id: 2,
-      name: "Harvard University",
-      logo: "/img/harvard.jpg",
-      progress: 85,
-    },
-    {
-      id: 3,
-      name: "MIT",
-      logo: "/img/mit.jpg",
-      progress: 60,
-    },
+
   ]);
   const handleDelete = (id) => {
-    setData((prevData) => prevData.filter(college => college.id !== id));
+    setColleges(colleges.filter((college) => college.id !== id));
   };
 
   useEffect(() => {
@@ -41,8 +29,7 @@ const App = () => {
         <Header />
       </div>
       <div className="p-4">
-        {/* Pass the colleges data to the CollegeCardList component */}
-        <CollegeCardList colleges={data} onDelete={handleDelete} />
+        <CollegeCardContainer colleges={colleges} onDelete={handleDelete} />
       </div>
     </div>
   );
