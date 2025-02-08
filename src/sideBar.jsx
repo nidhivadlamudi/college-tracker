@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CheckCircle, Circle } from "lucide-react";
 import ProgressBar from "./progressbar";
+import { create } from "zustand";
 
 const tasks = ["Task 1", "Task 2", "Task 3", "Task 4", "Task 5"];
 
@@ -28,7 +29,7 @@ export default function VerticalTaskBar() {
             {completed[index] ? (
               <CheckCircle color="#008000" />
             ) : (
-              <Circle className="text-black" />
+              <Circle style={{ stroke: "black", strokeWidth: 2 }} />
             )}
           </div>
           {index < tasks.length - 1 && (
