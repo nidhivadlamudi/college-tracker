@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { CheckCircle, Circle } from "lucide-react";
 import ProgressBar from "./progressbar";
-import { create } from "zustand";
+//import { create } from "zustand";
 
 const tasks = ["Task 1", "Task 2", "Task 3", "Task 4", "Task 5"];
 
