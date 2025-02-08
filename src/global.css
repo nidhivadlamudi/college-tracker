@@ -43,7 +43,7 @@ body {
   background-color: var(--bright-red);
   color: var(--text-white);
   height: 50px;
-  padding: 0 20px;
+  padding: 16px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,6 +53,7 @@ body {
 .logo-container {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .logo {
@@ -88,6 +89,24 @@ body {
 .header-btn:hover {
   background: white;
   color: var(--text-white);
+}
+
+/* Profile container for alignment */
+.profile-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-left: auto; /* Push it to the far right */
+}
+
+/* Profile picture styling */
+.profile-pic {
+  width: 40px; /* Set a fixed width */
+  height: 40px; /* Set a fixed height */
+  border-radius: 50%; /* Make it a circle */
+  object-fit: cover; /* Maintain image proportions */
+  border: 2px solid var(--text-white); /* Optional border for a clean look */
+  cursor: pointer; /* Add a pointer cursor for interactivity */
 }
 
 .full-dashboard {
