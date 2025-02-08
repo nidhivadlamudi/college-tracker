@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header'
 import './global.css';
-import CollegeCard from './dashboardIcon';
+import CollegeCard from './CollegeCard';
 import SideBar from './sideBar';
 import CollegeCardList from './CollegeCardList';
 import './CollegeCard.css'
