@@ -34,9 +34,14 @@
     height: 10px;
     background-color: #e0e0e0;
     margin-top: 10px;
+    border-radius: 50px;
+    border: 1px solid #333
 }
 
 .progress {
+    width: 100%;
     height: 100%;
-    background-color: #4caf50; /* Green progress bar */
+    background-color: #369d5c; /* Green progress bar */
+    border-radius: 50px;
+    border: 1px solid #333
 }

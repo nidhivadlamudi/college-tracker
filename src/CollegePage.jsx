@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header'
 import './global.css';
-import CollegeCard from './dashboardIcon';
-import SideBar from './sideBar';
-import './dashboardIcon.css'
 import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale } from 'chart.js';
-import axios from 'axios';
+import sideBar from './sideBar';
+
+
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -22,11 +21,8 @@ const App = () => {
       <CollegeCard 
         logo="college-logo.png" 
         name="Sample College" 
-        progress={20} 
+        progress={((checkedBubbles/bubbles)*100)} 
       />
-    </div>
-    <div>
-      <SideBar />
     </div>
     </div>
   );
