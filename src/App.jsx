@@ -5,6 +5,7 @@ import CollegeCardList from './CollegeCardList';
 import './CollegeCard.css'
 import { Chart as ChartJS, Title, Tooltip, Legend, LineElement, CategoryScale, LinearScale } from 'chart.js';
 
+
 const App = () => {
   const [data, setData] = useState([
     {

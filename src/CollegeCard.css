@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 .college-card {
     width: 300px;
     height: 300px;
@@ -13,7 +19,6 @@
 }
 
 .college-header {
-    background-color: #007bff; /* Blue background */
     display: flex;
     justify-content: center; /* Center the logo */
     align-items: center;
