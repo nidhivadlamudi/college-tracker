@@ -138,3 +138,27 @@ canvas {
   color: white;
   width: 170px;
 }
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.search-input {
+  width: 60%;
+  max-width: 600px;
+  padding: 12px 18px;
+  font-size: 18px;
+  border: 2px solid #007bff; /* Blue border */
+  border-radius: 25px; /* Rounded edges */
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  color: #373333;
+}
+
+.search-input:focus {
+  border-color: #0056b3;
+  box-shadow: 0px 6px 12px rgba(0, 123, 255, 0.3);
+}
