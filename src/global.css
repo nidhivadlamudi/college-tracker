@@ -8,7 +8,7 @@
   font-family: "Poppins", sans-serif; 
   --module-grey: #373333;
   --text-white: #fcfcff;
-  --background-color: #c6c8ee;
+  --background-color: #e4e5f8;
   --button-color: #bd6b73;
   --bright-red: #330648;
   --gray: #b0b0b0
@@ -137,4 +137,9 @@ canvas {
   font-size: 16px;
   color: white;
   width: 170px;
+}
+
+
+.progress {
+  stroke: black;
 }

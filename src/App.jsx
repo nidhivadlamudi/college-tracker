@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './Header'
 import './global.css';
 import CollegeCardContainer from './CollegeCardContainer';
+import VerticalTaskBar from './sideBar';
 
 
 const App = () => {
@@ -30,6 +31,9 @@ const App = () => {
       </div>
       <div className="p-4">
         <CollegeCardContainer colleges={colleges} onDelete={handleDelete} />
+      </div>
+      <div>
+        <VerticalTaskBar />
       </div>
     </div>
   );
