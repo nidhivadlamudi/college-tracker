@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './CollegeCard.css'; // Ensure you have this CSS file for styling
 
-const CollegeCard = ({ id, logo, name, progress, color, onDelete }) => {
-  const [showDelete, setShowDelete] = useState(false);
+const CollegeCard = ({ id, logo, name, progress, onDelete }) => {
+  const [showDelete, setShowDelete] = useState(false);  // State for toggling delete option
+  const [headerColor, setHeaderColor] = useState('');
 
-  const handleDeleteClick = () => {
-    onDelete(id); // Call the delete handler passed from the parent component
-  };
-  
   const colors = [
     '#1D3557',  // Deep Blue
     '#457B9D',  // Slate Blue
@@ -39,32 +36,36 @@ const CollegeCard = ({ id, logo, name, progress, color, onDelete }) => {
     '#C2185B',  // Deep Pink
     '#0288D1',  // Bright Blue
   ];
-  
-  var usedColors = [
 
-  ]
-  
+  const [usedColors, setUsedColors] = useState([]);
 
-  // Utility function to generate a random color from the list
   const getRandomColor = () => {
     const randomIndex = Math.floor(Math.random() * colors.length);
-    if (usedColors.includes(colors[randomIndex])){
-      return getRandomColor()
+    if (usedColors.includes(colors[randomIndex])) {
+      return getRandomColor(); // Recursively call until a unique color is found
     }
-    usedColors.push(colors[randomIndex]);
+    setUsedColors([...usedColors, colors[randomIndex]]);
     return colors[randomIndex];
   };
 
-  const headerColor = getRandomColor();
+  // Set the initial color when the component mounts
+  useEffect(() => {
+    setHeaderColor(getRandomColor());
+  }, []); // Empty dependency array means it runs only on mount
+
+  const handleDeleteClick = () => {
+    onDelete(id); // Call the delete handler passed from the parent component
+  };
+
+  const handleHamburgerClick = () => {
+    setShowDelete((prev) => !prev); // Toggle delete button visibility
+  };
 
   return (
     <div className="college-card">
-      <div className="college-header" style = {{backgroundColor: headerColor}}>
+      <div className="college-header" style={{ backgroundColor: headerColor }}>
         <img src={logo} alt="College Logo" className="college-logo" />
-        <div
-          className="hamburger-menu"
-          onClick={() => setShowDelete(!showDelete)}
-        >
+        <div className="hamburger-menu" onClick={handleHamburgerClick}>
           <div></div>
           <div></div>
           <div></div>
