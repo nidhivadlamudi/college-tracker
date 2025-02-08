@@ -4,20 +4,20 @@
 @tailwind utilities;
 
 
-/* ------------------ GENERAL STYLING ---------------*/
 :root {
-  font-family: "Poppins", sans-serif; /* Set default font */
-  --cmr-red: #AF1328;
-  --cmr-black: #231f20;
+  font-family: "Poppins", sans-serif; 
   --module-grey: #373333;
-  --text-white: #ffffff;
+  --text-white: #fcfcff;
+  --background-color: #c6c8ee;
+  --button-color: #bd6b73;
+  --bright-red: #330648;
+  --gray: #b0b0b0
 }
 
 body {
-  font-family: "Poppins", sans-serif; /* Ensure body text uses Poppins */
   margin: 0;
   padding: 0;
-  background-color: var(--cmr-black);
+  background-color: var(--background-color);
 }
 
 * {
@@ -31,20 +31,16 @@ body {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: linear-gradient(217deg, var(--cmr-black), rgba(255,0,0,0) 70.71%),
-              linear-gradient(127deg, rgba(2, 4, 22, 0.8), rgba(0,255,0,0) 70.71%),
-              linear-gradient(336deg, rgba(92, 17, 13, 0.8), rgba(0,0,255,0) 70.71%);
+  background: var(--gray);
 }
 
-/* ------------------ HEADER STYLING ---------------*/
-
 .header-container {
-  position: fixed; /* makes the header stay at the TOPPP */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: var(--cmr-red);
+  background-color: var(--bright-red);
   color: var(--text-white);
   height: 50px;
   padding: 0 20px;
@@ -91,16 +87,12 @@ body {
 
 .header-btn:hover {
   background: white;
-  color: var(--cmr-black);
+  color: var(--text-white);
 }
 
-/* this prevents content from being hidden behind the fixed header */
 .full-dashboard {
   padding-top: 60px;
 }
-
-/* ------------- MAIN PAGE TOP DASHBOARD (TRACK-MAP, DATA GRAPHS ------------*/
-/* TODO: FINISH SEPARING TOP & BOTTOM DASHBOARDS */
 
 .homepage-dashboard-top {
   display: flex;
@@ -122,7 +114,7 @@ canvas {
   width: 250px;
   flex: 1;
   background: var(--module-grey);
-  border: 1px solid var(--cmr-red);
+  border: 1px solid var(--bright-red);
   border-radius: 8px;
 }
 
@@ -140,7 +132,7 @@ canvas {
   padding: 5px;
   border: 2px solid #ffffff;
   border-radius: 5px;
-  background-color: var(--cmr-red);
+  background-color: var(--bright-red);
   cursor: pointer;
   font-size: 16px;
   color: white;
