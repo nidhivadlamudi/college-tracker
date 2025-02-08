@@ -2,9 +2,10 @@
     display: flex; /* Enables flexbox layout */
     flex-direction: row; /* Aligns items horizontally */
     flex-wrap: wrap; /* Wraps items to the next line if there's not enough space */
-    gap: 16px; /* Adds space between cards */
+    gap: 32px; /* Adds space between cards */
     justify-content: flex-start; /* Aligns cards to the left (or center if you prefer `center`) */
     align-items: flex-start; /* Aligns cards to the top */
     padding: 16px; /* Adds some padding around the container */
+    margin-top: 30px;
   }
   

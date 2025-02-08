@@ -29,33 +29,24 @@ const App = () => {
 
   return (
     <Router>
-      <div>
-        <div className="full-dashboard">
-          <Header />
-        </div>
-        <div className="p-4">
-          <CollegeCardContainer colleges={colleges} onDelete={handleDelete} />
-        </div>
-        <div>
-          <VerticalTaskBar />
-        </div>
-        {/* Define the Routes */}
-        <Routes>
-          <Route path="/" element={
+      <Routes>
+        {/* Route for Dashboard (Main Page) */}
+        <Route
+          path="/"
+          element={
             <div>
-              <h1>Welcome to the College Tracker Dashboard</h1>
+              <Header />
+              <div className="p-4">
+                <CollegeCardContainer colleges={colleges} onDelete={handleDelete} />
+              </div>
+              <VerticalTaskBar />
             </div>
-          } />
-          {/* Dynamic Route for each subsite */}
-          {colleges.map(college => (
-            <Route
-              key={college.id}
-              path={`/subsite/${college.subsite}`}
-              element={<SubSite college={college} />}
-            />
-          ))}
-        </Routes>
-      </div>
+          }
+        />
+        
+        {/* Route for Subsite - This will be a separate page without the Dashboard */}
+        <Route path="/subsite/:subsiteId" element={<SubSite />} />
+      </Routes>
     </Router>
   );
 };

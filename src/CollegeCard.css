@@ -3,6 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Make sure the Link behaves as a block element */
+.college-card-link {
+    display: block;  /* Makes the Link behave like a block element */
+    text-decoration: none;  /* Removes the underline and any other default link styling */
+    margin-top: 20px;
+  }
 
 .college-card {
     width: 300px;

@@ -1,12 +1,14 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
-const SubSite = ({ college }) => {
+const SubSite = () => {
+  const { subsiteId } = useParams(); // Get the subsiteId from the URL
+
   return (
     <div>
-      <h1>{college.name}</h1>
-      <img src={college.logo} alt={college.name} />
-      <p>Progress: {college.progress}%</p>
-      <p>This is a subpage dedicated to {college.name}.</p>
+      <h1>Welcome to {subsiteId} Subsite!</h1>
+      {/* You can display other content related to this subsite */}
+      <p>Details about {subsiteId}...</p>
     </div>
   );
 };
