@@ -3,7 +3,7 @@ import Header from './Header'
 import './global.css';
 import CollegeCardContainer from './CollegeCardContainer';
 import VerticalTaskBar from './sideBar';
-import useStore from './store';
+// import useStore from './store';
 
 
 const App = () => {
