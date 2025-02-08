@@ -19,17 +19,19 @@ const CollegeCard = ({ id, logo, name, progress, onDelete, subsite }) => {
     setHeaderColor(colors[Math.floor(Math.random() * colors.length)]);
   }, []);
 
-  const handleDeleteClick = () => {
+  const handleDeleteClick = (event) => {
+    // Prevent this click event from propagating to the parent link
+    event.stopPropagation();
     onDelete(id);
   };
 
-  const handleHamburgerClick = () => {
+  const handleHamburgerClick = (event) => {
+    // Prevent this click event from propagating to the parent link
+    event.stopPropagation();
     setShowDelete((prev) => !prev);
   };
 
   return (
-    <Link to={`/subsite/${subsite}`} className="college-card-link">
-      {/* Wrap the entire card with Link */}
       <div className="college-card">
         <div className="college-header" style={{ backgroundColor: headerColor }}>
           <img src={logo} alt="College Logo" className="college-logo" />
@@ -44,13 +46,14 @@ const CollegeCard = ({ id, logo, name, progress, onDelete, subsite }) => {
             </div>
           )}
         </div>
+        <Link to={`/subsite/${subsite}`} className="college-card-link">
         <div className="college-name">{name}</div>
+        </Link>
         <div className="progress-bar">
           <div className="progress" style={{ width: `${progress}%` }}></div>
         </div>
         <div className="progress-percentage">{progress}% Done!</div>
       </div>
-    </Link>
   );
 };
 
