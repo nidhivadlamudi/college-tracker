@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'; // Import Link for navigation
 import './CollegeCard.css';
 
-const CollegeCard = ({ id, logo, name, progress, onDelete }) => {
+const CollegeCard = ({ id, logo, name, progress, onDelete, subsite }) => {
   const [showDelete, setShowDelete] = useState(false);
   const [headerColor, setHeaderColor] = useState('');
 
@@ -27,26 +28,29 @@ const CollegeCard = ({ id, logo, name, progress, onDelete }) => {
   };
 
   return (
-    <div className="college-card">
-      <div className="college-header" style={{ backgroundColor: headerColor }}>
-        <img src={logo} alt="College Logo" className="college-logo" />
-        <div className="hamburger-menu" onClick={handleHamburgerClick}>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        {showDelete && (
-          <div className="delete-option" onClick={handleDeleteClick}>
-            Delete
+    <Link to={`/subsite/${subsite}`} className="college-card-link">
+      {/* Wrap the entire card with Link */}
+      <div className="college-card">
+        <div className="college-header" style={{ backgroundColor: headerColor }}>
+          <img src={logo} alt="College Logo" className="college-logo" />
+          <div className="hamburger-menu" onClick={handleHamburgerClick}>
+            <div></div>
+            <div></div>
+            <div></div>
           </div>
-        )}
+          {showDelete && (
+            <div className="delete-option" onClick={handleDeleteClick}>
+              Delete
+            </div>
+          )}
+        </div>
+        <div className="college-name">{name}</div>
+        <div className="progress-bar">
+          <div className="progress" style={{ width: `${progress}%` }}></div>
+        </div>
+        <div className="progress-percentage">{progress}% Done!</div>
       </div>
-      <div className="college-name">{name}</div>
-      <div className="progress-bar">
-        <div className="progress" style={{ width: `${progress}%` }}></div>
-      </div>
-      <div className="progress-percentage">{progress}% Done!</div>
-    </div>
+    </Link>
   );
 };
 
